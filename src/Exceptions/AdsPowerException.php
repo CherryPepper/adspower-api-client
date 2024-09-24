@@ -2,7 +2,9 @@
 
 namespace CherryPepper\AdsPower\Exceptions;
 
-class AdsPowerException extends \Exception
+use Exception;
+
+class AdsPowerException extends Exception
 {
     protected array $data;
 

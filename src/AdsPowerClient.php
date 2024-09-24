@@ -8,7 +8,6 @@ use CherryPepper\AdsPower\Services\Groups;
 use CherryPepper\AdsPower\Services\Extensions;
 use CherryPepper\AdsPower\Services\Profiles;
 use CherryPepper\AdsPower\Config\AdsPowerConfig;
-use CherryPepper\AdsPower\DTO\StatusResponse;
 use CherryPepper\AdsPower\Exceptions\AdsPowerException;
 use CherryPepper\AdsPower\Exceptions\AdsPowerApiException;
 use CherryPepper\AdsPower\Exceptions\AdsPowerNetworkException;
@@ -22,7 +21,7 @@ use JsonException;
  *
  * The main client class for interacting with the AdsPower API.
  *
- * @package AdsPower
+ * @package CherryPepper\AdsPower
  */
 class AdsPowerClient
 {
@@ -68,18 +67,6 @@ class AdsPowerClient
         $this->groups = new Groups($this->httpClient, $this->config);
         $this->extensions = new Extensions($this->httpClient, $this->config);
         $this->profiles = new Profiles($this->httpClient, $this->config);
-    }
-
-    /**
-     * Check service availability.
-     *
-     * @return StatusResponse The response from the status endpoint.
-     * @throws AdsPowerException|JsonException|GuzzleException
-     */
-    public function getStatus(): StatusResponse
-    {
-        $response = $this->sendRequest('GET', '/status');
-        return new StatusResponse($response);
     }
 
     /**

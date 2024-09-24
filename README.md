@@ -89,7 +89,7 @@ $params->fingerprint_config = [
 try {
     // Create the profile
     $profileCreateResponse = $adsPowerClient->profiles->create($params);
-    echo "Profile created with ID: " . $profileCreateResponse->id . PHP_EOL;
+    echo "Profile created with ID: " . $profileCreateResponse->data['id'] . PHP_EOL;
 } catch (AdsPowerException $e) {
     echo "Error creating profile: " . $e->getMessage() . PHP_EOL;
 }

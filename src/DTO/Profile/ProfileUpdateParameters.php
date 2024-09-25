@@ -34,7 +34,7 @@ class ProfileUpdateParameters
             'user_id' => $this->user_id,
             'name' => $this->name,
             'domain_name' => $this->domain_name,
-            'open_urls' => $this->open_urls ? json_encode($this->open_urls, JSON_THROW_ON_ERROR) : null,
+            'open_urls' => $this->open_urls ?? null,
             'username' => $this->username,
             'password' => $this->password,
             'fakey' => $this->fakey,
@@ -46,9 +46,9 @@ class ProfileUpdateParameters
             'city' => $this->city,
             'remark' => $this->remark,
             'sys_app_cate_id' => $this->sys_app_cate_id,
-            'user_proxy_config' => $this->user_proxy_config ? json_encode($this->user_proxy_config, JSON_THROW_ON_ERROR) : null,
+            'user_proxy_config' => $this->user_proxy_config ?? null,
             'proxyid' => $this->proxyid,
-            'fingerprint_config' => $this->fingerprint_config ? json_encode($this->fingerprint_config, JSON_THROW_ON_ERROR) : null,
+            'fingerprint_config' => $this->fingerprint_config ?? null,
         ], static function ($value) {
             return $value !== null;
         });

@@ -2,7 +2,6 @@
 
 namespace CherryPepper\AdsPower\DTO\Profile;
 
-use JsonException;
 
 class ProfileCreateParameters
 {
@@ -27,16 +26,13 @@ class ProfileCreateParameters
     public ?string $proxyid = null;
     public array $fingerprint_config;
 
-    /**
-     * @throws JsonException
-     */
     public function toArray(): array
     {
         return array_filter([
             'name' => $this->name,
             'domain_name' => $this->domain_name,
-            'open_urls' => $this->open_urls ? json_encode($this->open_urls, JSON_THROW_ON_ERROR) : null,
-            'repeat_config' => $this->repeat_config ? json_encode($this->repeat_config, JSON_THROW_ON_ERROR) : null,
+            'open_urls' => $this->open_urls ?? null,
+            'repeat_config' => $this->repeat_config ?? null,
             'username' => $this->username,
             'password' => $this->password,
             'fakey' => $this->fakey,
@@ -50,9 +46,9 @@ class ProfileCreateParameters
             'remark' => $this->remark,
             'ipchecker' => $this->ipchecker,
             'sys_app_cate_id' => $this->sys_app_cate_id,
-            'user_proxy_config' => $this->user_proxy_config ? json_encode($this->user_proxy_config, JSON_THROW_ON_ERROR) : null,
+            'user_proxy_config' => $this->user_proxy_config ?? null,
             'proxyid' => $this->proxyid,
-            'fingerprint_config' => $this->fingerprint_config ? json_encode($this->fingerprint_config, JSON_THROW_ON_ERROR) : null,
+            'fingerprint_config' => $this->fingerprint_config ?? null,
         ], static function ($value) {
             return $value !== null;
         });

@@ -22,7 +22,7 @@ class ProfileListParameters
             'group_id' => $this->group_id,
             'user_id' => $this->user_id,
             'serial_number' => $this->serial_number,
-            'user_sort' => $this->user_sort ? json_encode($this->user_sort, JSON_THROW_ON_ERROR) : null,
+            'user_sort' => $this->user_sort ?? null,
             'page' => $this->page,
             'page_size' => $this->page_size,
         ], static function ($value) {
